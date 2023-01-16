@@ -1,0 +1,81 @@
+﻿<Window x:Class="enigma.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:enigma"
+        mc:Ignorable="d"
+        Title="Enigma Machine" Height="600" Width="800" KeyDown="Window_KeyDown" ResizeMode="NoResize">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--<Button Grid.Row="0" Grid.Column="0" Height="30" Width="30" IsEnabled="True" x:Name="txtReflector"></Button>-->
+
+        <Button Grid.Row="0" Height="30" Width="100" Grid.Column="0" Click="Button_Click" x:Name="btnReset">Reset Machine</Button>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+            <Label VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic">Rotor3</Label>
+            <Button  Height="30" Width="30"  IsEnabled="True" x:Name="txtRotor3" Click="TxtRotor3_Click"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+            <Label VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic">Rotor2</Label>
+            <Button Height="30" Width="30"  IsEnabled="True" x:Name="txtRotor2" Click="TxtRotor2_Click"></Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="3">
+            <Label VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic">Rotor1</Label>
+            <Button Grid.Row="0" Grid.Column="3" Height="30" Width="30"  IsEnabled="True" x:Name="txtRotor1" Click="TxtRotor1_Click"></Button>
+        </StackPanel>
+
+
+        
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal">
+           
+            <Button Grid.Row="0" Grid.Column="0" Height="30" Width="30" x:Name="btnLampQ">Q</Button>
+            <Button Grid.Row="0" Grid.Column="1" Height="30" Width="30" x:Name="btnLampW">W</Button>
+            <Button Grid.Row="0" Grid.Column="2" Height="30" Width="30" x:Name="btnLampE">E</Button>
+            <Button Grid.Row="0" Grid.Column="3" Height="30" Width="30" x:Name="btnLampR">R</Button>
+            <Button Grid.Row="0" Grid.Column="4" Height="30" Width="30" x:Name="btnLampT">T</Button>
+            <Button Grid.Row="0" Grid.Column="5" Height="30" Width="30" x:Name="btnLampY">Y</Button>
+            <Button Grid.Row="0" Grid.Column="6" Height="30" Width="30" x:Name="btnLampU">U</Button>
+            <Button Grid.Row="0" Grid.Column="7" Height="30" Width="30" x:Name="btnLampI">I</Button>
+            <Button Grid.Row="0" Grid.Column="8" Height="30" Width="30" x:Name="btnLampO">O</Button>
+            <Button Grid.Row="0" Grid.Column="9" Height="30" Width="30" x:Name="btnLampP">P</Button>
+            <Button Grid.Row="1" Grid.Column="0" Height="30" Width="30" x:Name="btnLampA">A</Button>
+            <Button Grid.Row="1" Grid.Column="1" Height="30" Width="30" x:Name="btnLampS">S</Button>
+            <Button Grid.Row="1" Grid.Column="2" Height="30" Width="30" x:Name="btnLampD">D</Button>
+            <Button Grid.Row="1" Grid.Column="3" Height="30" Width="30" x:Name="btnLampF">F</Button>
+            <Button Grid.Row="1" Grid.Column="4" Height="30" Width="30" x:Name="btnLampG">G</Button>
+            <Button Grid.Row="1" Grid.Column="5" Height="30" Width="30" x:Name="btnLampH">H</Button>
+            <Button Grid.Row="1" Grid.Column="6" Height="30" Width="30" x:Name="btnLampJ">J</Button>
+            <Button Grid.Row="1" Grid.Column="7" Height="30" Width="30" x:Name="btnLampK">K</Button>
+            <Button Grid.Row="1" Grid.Column="8" Height="30" Width="30" x:Name="btnLampL">L</Button>
+            <Button Grid.Row="2" Grid.Column="1" Height="30" Width="30" x:Name="btnLampZ">Z</Button>
+            <Button Grid.Row="2" Grid.Column="2" Height="30" Width="30" x:Name="btnLampX">X</Button>
+            <Button Grid.Row="2" Grid.Column="3" Height="30" Width="30" x:Name="btnLampC">C</Button>
+            <Button Grid.Row="2" Grid.Column="4" Height="30" Width="30" x:Name="btnLampV">V</Button>
+            <Button Grid.Row="2" Grid.Column="5" Height="30" Width="30" x:Name="btnLampB">B</Button>
+            <Button Grid.Row="2" Grid.Column="6" Height="30" Width="30" x:Name="btnLampN">N</Button>
+            <Button Grid.Row="2" Grid.Column="7" Height="30" Width="30" x:Name="btnLampM">M</Button>
+        </StackPanel>
+
+        <Label VerticalAlignment="Center" Grid.Row="2" FontWeight="Bold" FontStyle="Italic">Plain Text:</Label>
+        <TextBox Grid.Row="3" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Grid.ColumnSpan="4" x:Name="txtPlain" HorizontalScrollBarVisibility="Visible" TextWrapping="Wrap"></TextBox>
+
+        <Label VerticalAlignment="Center" Grid.Row="4" FontWeight="Bold" FontStyle="Italic">Encrypted Text:</Label>
+        <TextBox Grid.Row="5" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Grid.ColumnSpan="4" x:Name="txtEncrypted" HorizontalScrollBarVisibility="Visible" TextWrapping="Wrap"></TextBox>
+    </Grid>
+</Window>
